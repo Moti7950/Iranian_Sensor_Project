@@ -1,58 +1,76 @@
-🎯 Sensor Strike – Turn-Based Agent Weakness Game
-Sensor Strike is a turn-based console game where you play as an investigator trying to break an agent by exploiting their weaknesses.
-Each sensor you choose targets a specific weakness. The goal is to reduce all weaknesses to zero and defeat the agent.
 
-🧭 Game Flow
-1. Game Start
-At the beginning, an agent is loaded with a dictionary of weaknesses.
-For example:
+# 🕵️ Sensor Strike  
+**Turn-Based Console Game – Defeat the Agent by Targeting Weaknesses**
 
-Thermal Sensor → 2
+A strategic console game where you play as an investigator. Your mission: use the right sensors to expose and eliminate an undercover agent's weaknesses.
 
-Sound Detector → 1
+---
 
-Pressure Sensor → 3
+## 🎯 Objective
 
-Each number represents how many times a specific sensor must be applied to neutralize that weakness.
+Use various sensors to match and reduce the agent’s weaknesses.  
+Each correct sensor reduces the corresponding weakness by 1.  
+**When all weaknesses reach zero – you win.**
 
-2. Turn Loop
-In every round:
+---
 
-A sensor selection menu is displayed.
+## 🔄 Game Flow
 
-The player chooses a sensor.
+### 🟢 1. Start  
+An agent is initialized with a predefined set of weaknesses:  
+Each weakness is tied to a sensor and has a value (e.g., 1–3).  
+Your task is to bring all values down to **zero**.
 
-If the sensor matches an existing weakness and the value is above zero, the value is decreased by 1.
+---
 
-If it doesn't match or is already at zero – nothing happens.
+### 🌀 2. Turn-Based Loop  
+For each turn:
+- A menu appears prompting the player to choose a sensor.
+- If the chosen sensor matches a weakness:
+  - The weakness value is decreased by **1**.
+- If it doesn’t match or is already zero:
+  - Nothing happens.
 
-This process repeats every turn until all weaknesses are reduced to zero.
+The game continues **until all weaknesses are zero**.
 
-3. End of Game
-At the end of each turn, the game checks:
+---
 
-If all weakness values are zero, the game ends with a victory message:
-"You defeated the agent!"
+### 🏁 3. Game End  
+After each turn, the system checks:
+- ✅ If **all values are zero** → `Victory!`
+- 🔁 Otherwise → The next turn begins
 
-Otherwise – the game continues to the next round.
+---
 
-📁 Project Structure
-IAgent.cs – Interface for the agent (name + weaknesses)
+## 🧠 Example Weakness Set
+```
+Thermal Sensor     → 2  
+Sound Detector     → 1  
+Pressure Sensor    → 3
+```
 
-ISensor.cs – Interface for sensors (name + active state)
+---
 
-Sensor.cs – Optional class for implementing a concrete sensor
+## 📂 Project Structure
 
-Manager.cs – Core game logic: turn handling, weakness checks
+| File             | Description                                  |
+|------------------|----------------------------------------------|
+| `IAgent.cs`      | Interface for the agent (name, weaknesses)   |
+| `ISensor.cs`     | Interface for the sensor                     |
+| `Sensor.cs`      | Optional sensor implementation               |
+| `Manager.cs`     | Main logic – turns, checks, progression      |
+| `Menu.cs`        | Menu system – player interaction             |
+| `Program.cs`     | Entry point of the application               |
 
-Menu.cs – Sensor selection menu and player interaction
+---
 
-Program.cs – Main entry point of the game
+## 🛠 Technologies Used
 
-🛠 Technologies
-Programming Language: C#
+- **Language:** C#  
+- **Framework:** .NET Framework 4.7.2  
+- **Type:** Console Application
 
-Framework: .NET Framework 4.7.2
+---
 
-Type: Console Application
-
+## 👤 Author  
+Created with passion by **Moti Kopshitz**.
